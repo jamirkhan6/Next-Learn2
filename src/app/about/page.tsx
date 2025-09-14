@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 
-export default function about () {
+export default async function about () {
+  const cookiesStore = await cookies();
+  const theme = cookiesStore.get("theme")
+  console.log(theme)
     return (
       <>
         <h2>this is about page</h2>
